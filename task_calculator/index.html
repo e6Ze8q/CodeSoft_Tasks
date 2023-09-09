@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Caculator</title>
+  </head>
+  <body>
+    <center>
+    <h1 style="background-color:brown;color: white;">Calculator</h1>
+  </center>
+    <div class="calculator">
+   <div class="screen">
+      <h1 id="result"></h1>
+   </div>
+   <div class="cal-buttons">
+      <ul id="buttons">
+         <li>1</li>
+         <li>2</li>
+         <li>3</li>
+         <li id="clear">C</li>
+         <li>4</li>
+         <li>5</li>
+         <li>6</li>
+         <li>+</li>
+         <li>7</li>
+         <li>8</li>
+         <li>9</li>
+         <li>-</li>
+         <li>0</li>
+         <li>x</li>
+         <li>.</li>
+         <li>÷</li>
+         <li id="equals">=</li>
+      </ul>
+   </div>
+</div>
+
+<script>
+var buttons = document.getElementById("buttons");
+var li = buttons.querySelectorAll("li");
+var result = document.getElementById("result");
+
+
+for (let i = 0; i < li.length; i++) {
+    li[i].addEventListener("click", function() {
+        if (this.innerHTML == "=") {
+            result.innerHTML = eval(result.innerHTML);
+        } else {
+            if (this.innerHTML == "÷") {
+                result.innerHTML += "/";
+            } else if (this.innerHTML == "x") {
+                result.innerHTML += "*";
+            } else if (this.innerHTML == 'C') {
+                result.innerHTML = "";
+            } else {
+                result.innerHTML += this.innerHTML;
+            }
+        }
+    });
+}
+
+</script>
+  </body>
+</html>
